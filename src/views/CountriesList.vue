@@ -1,7 +1,7 @@
 <template>
     <div v-for="(country, index) in countries" class="column is-4" style="overflow: auto">
-        <router-link :to="{name:'countries', params:{code:index}}">
-            <a class="media is-clickable" href="/1">
+        <router-link :to="{name:'details', params:{code:country.alpha3Code}}">
+            <a class="media is-clickable name-map" href=":code">
                 <figure class="media-left">
                     <p class="image is-64x64">
                         <img
@@ -17,19 +17,37 @@
                 </div>
             </a>
         </router-link>
-    </div>
-
-<router-view/>
+    </div> 
+<router-view></router-view> 
 </template>
 
 <script setup>
 import countries from '../assets/countries.json'
+import { useRoute }  from 'vue-router'
 
-console.log(countries)
+const route = useRoute();
 
 </script>
 
 <style scoped>
+.name-map {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    text-align: center; 
+    margin: 0px;
+    padding: 0px; 
+
+}
+
+.content p {
+    text-decoration: none; 
+    color: black
+}
+
+.media {
+}
 
 </style>
 

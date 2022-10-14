@@ -5,9 +5,9 @@ const routes = [
     path: '/',
     name: 'countries',
     component: () => import(/* webpackChunkName: 'list' */ '../views/CountriesList.vue'),
-    children: [
+    children: [ 
       {
-        path: ':code',
+        path: '/:code',
         name: 'details',
         component: () => import(/* webpackChunkName: 'details' */ '../views/CountriesDetails.vue')
       },
